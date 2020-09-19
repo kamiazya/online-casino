@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "dependencies": {
+    "eventemitter3": "^4.0.7"
+  },
   "devDependencies": {
     "typescript": "^4.0.3"
   }
