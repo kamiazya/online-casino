@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "markdownlint.config": {
+    "default": true,
+    "MD041": false
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "deno.enable": false
+}
