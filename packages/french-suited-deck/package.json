@@ -1,15 +1,14 @@
 {
-  "name": "@kamiazya-online-casino/playing-cards",
+  "name": "@kamiazya-online-casino/french-suited-deck",
   "version": "0.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "eventemitter3": "^4.0.7"
+    "@kamiazya-online-casino/playing-cards": "0.0.0"
   },
   "devDependencies": {
     "typescript": "^4.0.3"

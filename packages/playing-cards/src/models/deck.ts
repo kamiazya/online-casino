@@ -1,11 +1,27 @@
 import { CardCollection } from './card-collection';
 import { Card } from './card';
+import { EventType, PlayingCardBase } from './playing-card-base';
 
-export abstract class Deck<C extends Card> extends CardCollection<C> {
-  protected all: Set<C>;
-  protected discard: CardCollection<C> = new CardCollection('discard');
+export interface DeckEventType extends EventType {
+  draw: () => void;
+}
+
+/**
+ * デッキ
+ */
+export abstract class Deck<C extends Card> extends PlayingCardBase {
+  /**
+   * デッキの管理下にある全てのカードがある
+   */
+  protected deck: CardCollection<C>;
+  // protected field: CardCollection<C> = new CardCollection();
+  // protected discard: CardCollection<C> = new CardCollection();
   constructor(cards: C[]) {
-    super('deck', cards);
-    this.all = new Set(cards);
+    super();
+    this.deck = new CardCollection(cards);
+  }
+
+  public shaffle(): void {
+    //
   }
 }

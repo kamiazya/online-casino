@@ -9,6 +9,10 @@
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
+  "testMatch": [
+    "**/__tests__/**/*.spec.[jt]s?(x)",
+    "**/__tests__/**/*.test.[jt]s?(x)"
+  ],
   "moduleFileExtensions": [
     "ts",
     "tsx",

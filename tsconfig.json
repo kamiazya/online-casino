@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
+    "target": "ES5",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true
   },
   "exclude": [
     "/**/__tests__/**/*",

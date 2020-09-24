@@ -1,5 +1,4 @@
-import { Deck } from '../models/deck';
-import { Card } from '../models/card';
+import { Card, Deck } from '@kamiazya-online-casino/playing-cards';
 
 export type Suit = 'S' | 'C' | 'D' | 'H';
 
@@ -10,11 +9,7 @@ export const CLUB: Suit = 'C';
 export const DIAMOND: Suit = 'D';
 export const HEART: Suit = 'H';
 
-export class FrenchSuitedCard extends Card {
-  constructor(public readonly suit: Suit, public readonly rank: Rank) {
-    super();
-  }
-}
+export class FrenchSuitedCard extends Card {}
 
 export class FrenchSuited extends Deck<FrenchSuitedCard> {
   constructor() {
