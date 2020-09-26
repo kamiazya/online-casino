@@ -1,0 +1,18 @@
+{
+  "name": "@kamiazya-online-casino/high-and-low-game",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.0.9",
+    "typescript": "^4.1.0-beta"
+  },
+  "dependencies": {
+    "prompts": "^2.3.2"
+  }
+}
