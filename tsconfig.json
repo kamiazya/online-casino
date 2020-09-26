@@ -7,7 +7,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "experimentalDecorators": true,
     "downlevelIteration": true
   },
   "exclude": [

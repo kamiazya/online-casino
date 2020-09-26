@@ -6,6 +6,10 @@
   "collectCoverageFrom": [
     "**/src/**"
   ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "__tests__/utils/"
+  ],
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },

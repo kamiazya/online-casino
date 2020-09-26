@@ -1,27 +1,24 @@
 import { CardCollection } from './card-collection';
 import { Card } from './card';
-import { EventType, PlayingCardBase } from './playing-card-base';
+import { EventType } from './playing-card-base';
+import { Hold } from './hold';
 
-export interface DeckEventType extends EventType {
-  draw: () => void;
-}
+type Repeat<T, N extends number, R extends any[] = []> = R['length'] extends N ? R : Repeat<T, N, [T, ...R]>;
 
 /**
  * デッキ
  */
-export abstract class Deck<C extends Card> extends PlayingCardBase {
-  /**
-   * デッキの管理下にある全てのカードがある
-   */
-  protected deck: CardCollection<C>;
-  // protected field: CardCollection<C> = new CardCollection();
-  // protected discard: CardCollection<C> = new CardCollection();
-  constructor(cards: C[]) {
-    super();
-    this.deck = new CardCollection(cards);
-  }
+export abstract class Deck<C extends Card, T extends EventType = EventType> extends CardCollection<C, T> {
+  public divide<N extends number>(n: N): Repeat<Hold<C>, N> {
+    const base = Math.floor(this.length / n); // 最低の配当
+    const rem = this.length % n; // あまり
 
-  public shaffle(): void {
-    //
+    const list: number[] = [];
+    for (let i = 0; i < n; i++) {
+      list[i] = i < rem ? base + 1 : base;
+    }
+    /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+    // @ts-ignore
+    return list.map((x) => Hold.from(this, x));
   }
 }
