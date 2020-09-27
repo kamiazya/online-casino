@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
+    "build:w": "tsc -w",
     "start": "ts-node src/main"
   },
   "devDependencies": {

@@ -5,7 +5,8 @@
   "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "build:w": "tsc -w"
   },
   "dependencies": {
     "@kamiazya-online-casino/playing-cards": "0.0.0"

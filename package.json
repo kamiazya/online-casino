@@ -6,7 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "yarn workspace @kamiazya-online-casino/cui start",
     "build": "yarn workspaces run build",
+    "build:w": "yarn workspaces run build:w",
+    "postinstall": "yarn workspace @kamiazya-online-casino/playing-cards build && yarn workspace @kamiazya-online-casino/french-suited-deck build && yarn workspace @kamiazya-online-casino/high-and-low-game build && yarn workspace @kamiazya-online-casino/cui build",
     "test": "jest",
     "lint": "eslint -c .eslintrc.json --ext ts packages"
   },
@@ -25,6 +28,7 @@
     "jest": "^26.4.2",
     "prettier": "^2.1.2",
     "ts-jest": "^26.3.0",
-    "typescript": "^4.1.0-beta"
+    "typescript": "^4.1.0-beta",
+    "wsrun": "^5.2.2"
   }
 }

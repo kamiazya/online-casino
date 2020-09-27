@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "build:w": "tsc -w"
   },
   "dependencies": {
     "eventemitter3": "^4.0.7"
