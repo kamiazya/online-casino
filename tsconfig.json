@@ -3,6 +3,7 @@
     "module": "CommonJS",
     "target": "ES5",
     "strict": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

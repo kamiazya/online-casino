@@ -1,0 +1,25 @@
+{
+  "name": "@kamiazya-online-casino/cui",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/main"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.0.9",
+    "@types/react": "^16.9.49",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.0-beta"
+  },
+  "dependencies": {
+    "ink": "^3.0.6",
+    "ink-big-text": "^1.2.0",
+    "ink-gradient": "^2.0.0",
+    "ink-select-input": "^4.1.0",
+    "react": "^16.13.1"
+  }
+}
