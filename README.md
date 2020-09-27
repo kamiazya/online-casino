@@ -26,3 +26,10 @@
   - @kamiazya-online-casino/cui
     - おまけ
 ```
+
+## CUI
+
+```bash
+yarn install
+yarn start
+```
