@@ -18,7 +18,7 @@ const Card: FC<{ card: FrenchSuitedCard | null }> = ({ card }) => {
       } else if (card.is(Heart)) {
         return '♡' + card.rank;
       } else if (card.is(Club)) {
-        return '♡' + card.rank;
+        return '♧' + card.rank;
       }
     }
     return '?';
