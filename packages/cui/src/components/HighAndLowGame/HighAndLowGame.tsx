@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import { Text, Box } from 'ink';
+import { Text, Box, Newline } from 'ink';
 import { AI, HighAndLowGame, Turn } from './models';
 import SelectInput from 'ink-select-input';
 const Gradient: FC<{ name: string }> = require('ink-gradient');
@@ -104,6 +104,8 @@ const Field: FC<{
   );
 };
 
+const splitArrayByNumber = (array: any[], n: number) => array.reduce((a: any[][], c: any, i: number) => i % n == 0 ? [...a, [c]] : [...a.slice(0, -1), [...a[a.length - 1], c]], []);
+
 export const HighAndLow: FC = () => {
   const game = useMemo(() => new HighAndLowGame(), []);
   const ai = useMemo(() => new AI(), []);
@@ -159,6 +161,8 @@ export const HighAndLow: FC = () => {
     })();
   }, [game]);
 
+  const splitPairs = splitArrayByNumber(discard, 2);
+
   return (
     <Box flexDirection="column" justifyContent="space-between">
       <Box flexDirection="column" alignItems="center">
@@ -168,12 +172,15 @@ export const HighAndLow: FC = () => {
         <Box>
           <SelectInput items={items} onSelect={onAnswer} />
         </Box>
-        <Box justifyContent="space-around" borderStyle="classic" width="50%">
-          {discard.map((card, index) => (
-            <Box key={index} width={5}>
-              <Card card={card}></Card>
-            </Box>
-          ))}
+        <Box justifyContent="flex-start" width="50%" borderStyle="classic" padding={1}>
+          <Text>
+            {splitPairs.reverse().map((pair, i) => (
+              <Text key={i}>
+                [ <Card card={pair[0]}></Card>{' '}<Card card={pair[1]}></Card> ]{' '}
+                {((i+1) % 9 === 0) ? <Text><Newline /><Newline /></Text> : null}
+              </Text>
+            ))}
+          </Text>
         </Box>
       </Box>
     </Box>
