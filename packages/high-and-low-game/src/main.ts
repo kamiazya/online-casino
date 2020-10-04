@@ -26,7 +26,7 @@ class HighAndLowGame {
   };
 
   constructor() {
-    this.deck = new FrenchSuited({ joker: 0, shaffle: true });
+    this.deck = new FrenchSuited({ joker: 0, shuffle: true });
     const [hold1, hold2] = this.deck.divide(2);
     this.holds = { 1: hold1, 2: hold2 };
   }

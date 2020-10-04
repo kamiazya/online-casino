@@ -106,7 +106,7 @@ export class CardCollection<C extends Card, E extends EventType = EventType> ext
    * @description
    * Fisher–Yatesアルゴリズム
    */
-  public shaffle(): void {
+  public shuffle(): void {
     for (let i = this.length - 1; i > 0; i--) {
       const r = Math.floor(Math.random() * (i + 1));
       const tmp = this.cards[i];
