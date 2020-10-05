@@ -9,7 +9,7 @@ import { Enumerate } from './types/util';
 const NUMBER_RANKS: ReadonlyArray<NumberRank> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 export class FrenchSuited extends Deck<FrenchSuitedCard> {
-  constructor({ joker = 2, shaffle = false }: { joker?: Enumerate<3> | Color; shaffle?: boolean } = {}) {
+  constructor({ joker = 2, shuffle = false }: { joker?: Enumerate<3> | Color; shuffle?: boolean } = {}) {
     const cards: FrenchSuitedCard[] = [
       ...NUMBER_RANKS.map((rank) => new Spade(rank)),
       ...NUMBER_RANKS.map((rank) => new Club(rank)),
@@ -31,8 +31,8 @@ export class FrenchSuited extends Deck<FrenchSuitedCard> {
         break;
     }
     super(cards);
-    if (shaffle) {
-      this.shaffle();
+    if (shuffle) {
+      this.shuffle();
     }
   }
 }

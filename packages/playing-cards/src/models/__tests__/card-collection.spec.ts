@@ -155,9 +155,9 @@ describe('CardCollection', () => {
         expect(collection.slice()).toStrictEqual([c9, c8, c7, c6, c5, c4, c3, c2, c1, c0]);
       });
 
-      test('shaffle', () => {
+      test('shuffle', () => {
         collection = new CardCollection(cards);
-        collection.shaffle();
+        collection.shuffle();
         expect(collection.slice()).not.toStrictEqual(cards);
       });
     });
