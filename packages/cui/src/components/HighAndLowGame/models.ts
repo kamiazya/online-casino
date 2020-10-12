@@ -53,7 +53,6 @@ export class HighAndLowGame {
 
       this.discard.addToTop(parentCard);
       this.discard.addToTop(childCard);
-
     } while (this.discard.length !== 52);
   }
 }
