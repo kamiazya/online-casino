@@ -115,6 +115,7 @@ export const HighAndLow: FC = () => {
   const [cards, setCards] = useState<[you: FrenchSuitedCard | null, ai: FrenchSuitedCard | null]>([null, null]);
   const [discard, setDiscard] = useState<FrenchSuitedCard[]>([]);
   const [turn, setTurn] = useState<Turn>();
+  const [turns, setTurns] = useState<string[]>([]);
   const items = [
     {
       label: 'High',
@@ -127,6 +128,7 @@ export const HighAndLow: FC = () => {
   ];
   const onAnswer = (item: any) => {
     if (player === 1) {
+      setTurns([...turns, item.value]);
       setCards([turn?.child ?? null, turn?.parent ?? null]);
       const hl: 'high' | 'low' = item.value;
       if (hl === 'high') {
@@ -176,8 +178,10 @@ export const HighAndLow: FC = () => {
           <Text>
             {splitPairs.reverse().map((pair, i) => (
               <Text key={i}>
-                [ <Card card={pair[0]}></Card>{' '}<Card card={pair[1]}></Card> ]{' '}
-                {((i+1) % 9 === 0) ? <Text><Newline /><Newline /></Text> : null}
+                <Text>   </Text>
+                [ <Text>choice: {turns[i]} | </Text><Card card={pair[0]}></Card>  <Card card={pair[1]}></Card> ]
+                <Text>   </Text>
+                {((i+1) % 3 === 0) ? <Text><Newline /><Newline /></Text> : null}
               </Text>
             ))}
           </Text>
