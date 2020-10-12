@@ -78,7 +78,7 @@ const LOSE: FC = () => (
 );
 
 const Field: FC<{
-  cards: [FrenchSuitedCard | null, FrenchSuitedCard | null];
+  cards: [you: FrenchSuitedCard | null, ai: FrenchSuitedCard | null];
   winPlayer: 'YOU' | 'AI' | null;
 }> = ({ cards, winPlayer }) => {
   return (
@@ -112,7 +112,7 @@ export const HighAndLow: FC = () => {
   const [scores, setScores] = useState(game.scores);
   const [player, setPlayer] = useState<1 | 2>(1);
   const [winPlayer, setWinPlayer] = useState<'YOU' | 'AI' | null>(null);
-  const [cards, setCards] = useState<[FrenchSuitedCard | null, FrenchSuitedCard | null]>([null, null]);
+  const [cards, setCards] = useState<[you: FrenchSuitedCard | null, ai: FrenchSuitedCard | null]>([null, null]);
   const [discard, setDiscard] = useState<FrenchSuitedCard[]>([]);
   const [turn, setTurn] = useState<Turn>();
   const [turns, setTurns] = useState<string[]>([]);
