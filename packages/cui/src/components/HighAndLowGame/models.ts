@@ -32,29 +32,28 @@ export class HighAndLowGame {
   }
 
   public async *start(): AsyncGenerator<Turn> {
-    let parent: 1 | 2 = 1;
-    let child: 1 | 2 = 2;
-    let parentCard: FrenchSuitedCard;
-    [parentCard] = this.holds[parent].take(1, { from: 'top' });
+    const parent = 1;
+    const child = 2;
     do {
+      const [parentCard] = this.holds[parent].take(1, { from: 'top' });
       const [childCard] = this.holds[child].take(1, { from: 'top' });
       const turn = new Turn(parent, parentCard, childCard);
       yield turn;
       const hl = await turn.highOrLow;
 
-      if (hl === 'high') {
+      if (childCard.rank === parentCard.rank) {
+        // 同点のため点数に変動なし
+      } else if (hl === 'high') {
         const win = childCard.rank > parentCard.rank ? parent : child;
         this.scores[win]++;
-      } else {
+      } else if (hl === 'low') {
         const win = childCard.rank < parentCard.rank ? parent : child;
         this.scores[win]++;
       }
 
       this.discard.addToTop(parentCard);
-      parentCard = childCard;
-      parent = child;
-      child = parent === 2 ? 1 : 2;
-    } while (this.discard.length !== 51);
+      this.discard.addToTop(childCard);
+    } while (this.discard.length !== 52);
   }
 }
 
@@ -67,11 +66,11 @@ export class AI {
   public async play(turn: Turn): Promise<void> {
     await this.sleep(1000);
     if (Math.random() > 0.5) {
-      // console.log(`AI: may be HIGH then ${turn.parent.rank}`);
+      console.log(`AI: may be HIGH then ${turn.parent.rank}`);
       turn.answer('high');
     } else {
       turn.answer('low');
-      // console.log(`AI: may be LOW then ${turn.parent.rank}`);
+      console.log(`AI: may be LOW then ${turn.parent.rank}`);
     }
   }
 }
